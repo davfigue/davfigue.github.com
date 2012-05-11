@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://davfigue.github.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+title: davfigue's programming stuff
+subtitle: A personal journal of discoveries.
+author: David Figueroa
 simple_search: http://google.com/search
-description:
+description: blogging, web development, programming
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
