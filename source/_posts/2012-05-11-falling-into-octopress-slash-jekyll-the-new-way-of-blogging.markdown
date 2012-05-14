@@ -14,7 +14,7 @@ philosophy is simple but powerful. Octopress is based on
 simple, blog
 aware site generator"*, the main idea is to create your web site
 locally using a whole pipeline of tools like Textile, Markdown and
-others that are integrated into it (I'm not specially and expert about
+others that are integrated into it (I'm not specially an expert about
 it) and spit out a complete
 static set of files that you can serve very easily with whatever
 webserver at your hands. Apart from minimizing the whole processing
