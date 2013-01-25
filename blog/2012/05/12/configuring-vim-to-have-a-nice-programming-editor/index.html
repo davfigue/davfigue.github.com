@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Configuring Vim to have a nice programming editor - davfigue's programming stuff</title>
+  <meta name="author" content="davfigue">
+
+  
+  <meta name="description" content="My intention is not to enter into the eternal debate of what is better
+to use: an IDE or a powerful text editor like Vim or Emacs,
+this depends on &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://davfigue.github.com/blog/2012/05/12/configuring-vim-to-have-a-nice-programming-editor">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="davfigue's programming stuff" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31676055-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">davfigue's programming stuff</a></h1>
+  
+    <h2>A personal journal of discoveries.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:davfigue.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Configuring Vim to Have a Nice Programming Editor</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-12T18:18:00+02:00" pubdate data-updated="true">May 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>My intention is not to enter into the eternal debate of what is better
+to use: an <em>IDE</em> or a powerful text editor like <em>Vim</em> or <em>Emacs</em>,
+this depends on the task, your experience, your timing
+<em>(if you&#8217;re in a project with short time deadlines)</em>, your wishes to learn
+something new and get into troubles&#8230; The thing is that believe or not
+sometimes less is more (like the bash pager &#8216;less&#8217; that is better than
+&#8216;more&#8217;), sometimes the best way to focus and get things done is to get
+rid of all the super features and functions that many programs have and
+return to the simple life. For example: right now I&#8217;m writing this post
+in plain text using a very simple markup language called <em>Markdown</em>
+using Vim as editor, the simplicity of the whole picture <em>(dont&#8217; get
+confused, this doesn&#8217;t mean lack of features)</em> helps me to
+focus, Why? because I&#8217;m not being bother by things like the WYSIWYG
+editor <em>(put a name)</em> has ruined the format, or all the fraking
+notifications of the web browser, or if my cat threw down the router
+when I was going to save the article into my beloved web blog platform  <em>(put
+another name here)</em>. I&#8217;m just focus on what I&#8217;m writing in plain old
+english using a delightful text editor.</p>
+
+<!-- more -->
+
+
+<p>So now, returning to the subject we&#8217;re going to configure our beloved
+editor Vim with a set of plugins that will ease our life as developers
+and bloggers wannabe. Vim is like this little houses that from the outside look
+very humble and small but when you enter you find yourself into a
+huge palace. The truth is that configuring Vim to enable the features that
+you want as you want them to be can be a very demanding task, that&#8217;s why for many
+years people have been sharing their configuration scripts, but
+nowadays we also have compilation of features (we can think of them as a
+distribution in the linux world) for installing and
+forgetting of the vast majority of the configuration tasks.</p>
+
+<h3>Janus</h3>
+
+<p><a href="https://github.com/carlhuda/janus">Janus</a> is a vim distribution that packs a lot of popular plugins and mappings
+providing a minimal and enjoyable working environment.
+Janus come with a set of vim customizations as the following:</p>
+
+<ul>
+<li>Line numbers</li>
+<li>Ruler</li>
+<li>Soft 2-spaces tab</li>
+<li>Shows trailing whitespaces as &#8220;.&#8221;</li>
+<li>Searching is highlighted, incremental and case insensive</li>
+<li>Always show a status line</li>
+<li>A lot lot more.</li>
+</ul>
+
+
+<p>Also provides some of the following plugins:</p>
+
+<ul>
+<li>NERDCommenter: allows you to wrangle your code comments, regardless of
+filetype</li>
+<li>NERDTree: shows a very nice file explorer tree inside vim</li>
+<li>SuperTab: autocompletation based on the context</li>
+<li>Syntastic: a syntax checking plugin</li>
+<li>Fugitive: git support</li>
+<li>etc, etc, etc</li>
+</ul>
+
+
+<p>I advice you to check the web page project for a more complete
+description of the capabilities of Janus.</p>
+
+<h4>Installation</h4>
+
+<p>As easy as 1,2,3 using the automatic installer, which backs up any vim
+configuration file that you may already have.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>curl -Lo- http://bit.ly/janus-bootstrap | bash
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For more info about customizing Janus, I recommend visiting the project
+web page at <a href="https://github.com/carlhuda/janus">https://github.com/carlhuda/janus</a></p>
+
+<h3>Solarized</h3>
+
+<p>If you are into web development specially if you are a <em>mac fanboy</em>, there
+are many chances that you already know
+<a href="http://ethanschoonover.com/solarized">Solarized</a> a very nice color
+palette with a incredible well picked set of colors. Solarized comes
+basically in two flavors: <strong>The dark style</strong> and the <strong>light style</strong>. <em>Janus</em>
+has a built in support for solarized but it doesn&#8217;t work as expected
+because the color settings apparently are wrong.
+Here you have the code snippet that you have to put in
+<strong>~/.vimrc.after</strong></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="err">&quot;</span> sets up solarized properly
+</span><span class='line'><span class="nb">let </span>g:solarized_termcolors<span class="o">=</span>256
+</span><span class='line'><span class="nb">set </span><span class="nv">t_Co</span><span class="o">=</span>16
+</span><span class='line'><span class="nb">set </span><span class="nv">background</span><span class="o">=</span>dark
+</span><span class='line'>colorscheme solarized
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you should be asking How it looks like?, well if you pay attention to
+the nice colors in the previous code blocks you already saw it.
+<em>Octopress</em> my blogging platform use it by default for the code blocks.
+Now for make it more clear here you have a longer block with an example piece of code
+(using solarized as color scheme), this code is taken from one of my
+projects (A text simplifier platform):</p>
+
+<figure class='code'><figcaption><span>Example Java code  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * This transform one sentence per line into something that the parser can</span>
+</span><span class='line'><span class="cm"> * process</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'> <span class="kd">private</span> <span class="kt">void</span> <span class="nf">executeParsingProcess</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="n">PipelineHelper</span><span class="o">.</span><span class="na">getResourcePath</span><span class="o">(</span><span class="s">&quot;/ext-resources/input&quot;</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;Mate-tools input: &quot;</span> <span class="o">+</span> <span class="n">path</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="n">File</span> <span class="n">folder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="k">if</span> <span class="o">(!</span><span class="n">folder</span><span class="o">.</span><span class="na">isDirectory</span><span class="o">())</span> <span class="o">{</span>
+</span><span class='line'>     <span class="k">return</span><span class="o">;</span>
+</span><span class='line'>   <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="k">for</span> <span class="o">(</span><span class="n">File</span> <span class="n">file</span> <span class="o">:</span> <span class="n">folder</span><span class="o">.</span><span class="na">listFiles</span><span class="o">())</span> <span class="o">{</span>
+</span><span class='line'>     <span class="n">String</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="k">if</span> <span class="o">(</span><span class="n">filename</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">&quot;.tok&quot;</span><span class="o">)</span> <span class="o">||</span> <span class="n">filename</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">&quot;.lem&quot;</span><span class="o">)</span> <span class="o">||</span>
+</span><span class='line'>         <span class="n">filename</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">&quot;.tag&quot;</span><span class="o">)</span> <span class="o">||</span> <span class="n">filename</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">&quot;.mtag&quot;</span><span class="o">))</span>
+</span><span class='line'>       <span class="k">continue</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="n">tokenizeRawFile</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</span><span class='line'>     <span class="n">lemmatize</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</span><span class='line'>     <span class="n">taggify</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</span><span class='line'>     <span class="n">mtaggify</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</span><span class='line'>     <span class="n">dependencyParse</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</span><span class='line'>   <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well this is all for today.</p>
+
+<p>Have fun kids.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">davfigue</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-12T18:18:00+02:00" pubdate data-updated="true">May 12<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/janus/'>janus</a>, <a class='category' href='/blog/categories/programming/'>programming</a>, <a class='category' href='/blog/categories/solarized/'>solarized</a>, <a class='category' href='/blog/categories/vim/'>vim</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://davfigue.github.com/blog/2012/05/12/configuring-vim-to-have-a-nice-programming-editor/" data-via="davfigue" data-counturl="http://davfigue.github.com/blog/2012/05/12/configuring-vim-to-have-a-nice-programming-editor/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/11/falling-into-octopress-slash-jekyll-the-new-way-of-blogging/" title="Previous Post: Falling into Octopress/Jekyll: the new way of blogging">&laquo; Falling into Octopress/Jekyll: the new way of blogging</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/12/configuring-vim-to-have-a-nice-programming-editor/">Configuring Vim to have a nice programming editor</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/11/falling-into-octopress-slash-jekyll-the-new-way-of-blogging/">Falling into Octopress/Jekyll: the new way of blogging</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("davfigue", 5, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/davfigue" class="twitter-follow-button" data-show-count="false">Follow @davfigue</a>
+  
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/103073243777603655053?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - davfigue -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'davfigue-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://davfigue.github.com/blog/2012/05/12/configuring-vim-to-have-a-nice-programming-editor/';
+        var disqus_url = 'http://davfigue.github.com/blog/2012/05/12/configuring-vim-to-have-a-nice-programming-editor/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

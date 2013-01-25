@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: programming | davfigue's programming stuff]]></title>
+  <link href="http://davfigue.github.com/blog/categories/programming/atom.xml" rel="self"/>
+  <link href="http://davfigue.github.com/"/>
+  <updated>2013-01-26T00:55:55+01:00</updated>
+  <id>http://davfigue.github.com/</id>
+  <author>
+    <name><![CDATA[davfigue]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Configuring Vim to have a nice programming editor]]></title>
+    <link href="http://davfigue.github.com/blog/2012/05/12/configuring-vim-to-have-a-nice-programming-editor/"/>
+    <updated>2012-05-12T18:18:00+02:00</updated>
+    <id>http://davfigue.github.com/blog/2012/05/12/configuring-vim-to-have-a-nice-programming-editor</id>
+    <content type="html"><![CDATA[<p>My intention is not to enter into the eternal debate of what is better
+to use: an <em>IDE</em> or a powerful text editor like <em>Vim</em> or <em>Emacs</em>,
+this depends on the task, your experience, your timing
+<em>(if you're in a project with short time deadlines)</em>, your wishes to learn
+something new and get into troubles... The thing is that believe or not
+sometimes less is more (like the bash pager 'less' that is better than
+'more'), sometimes the best way to focus and get things done is to get
+rid of all the super features and functions that many programs have and
+return to the simple life. For example: right now I'm writing this post
+in plain text using a very simple markup language called <em>Markdown</em>
+using Vim as editor, the simplicity of the whole picture <em>(dont' get
+confused, this doesn't mean lack of features)</em> helps me to
+focus, Why? because I'm not being bother by things like the WYSIWYG
+editor <em>(put a name)</em> has ruined the format, or all the fraking
+notifications of the web browser, or if my cat threw down the router
+when I was going to save the article into my beloved web blog platform  <em>(put
+another name here)</em>. I'm just focus on what I'm writing in plain old
+english using a delightful text editor.</p>
+
+<!-- more -->
+
+
+<p>So now, returning to the subject we're going to configure our beloved
+editor Vim with a set of plugins that will ease our life as developers
+and bloggers wannabe. Vim is like this little houses that from the outside look
+very humble and small but when you enter you find yourself into a
+huge palace. The truth is that configuring Vim to enable the features that
+you want as you want them to be can be a very demanding task, that's why for many
+years people have been sharing their configuration scripts, but
+nowadays we also have compilation of features (we can think of them as a
+distribution in the linux world) for installing and
+forgetting of the vast majority of the configuration tasks.</p>
+
+<h3>Janus</h3>
+
+<p><a href="https://github.com/carlhuda/janus">Janus</a> is a vim distribution that packs a lot of popular plugins and mappings
+providing a minimal and enjoyable working environment.
+Janus come with a set of vim customizations as the following:</p>
+
+<ul>
+<li>Line numbers</li>
+<li>Ruler</li>
+<li>Soft 2-spaces tab</li>
+<li>Shows trailing whitespaces as "."</li>
+<li>Searching is highlighted, incremental and case insensive</li>
+<li>Always show a status line</li>
+<li>A lot lot more.</li>
+</ul>
+
+
+<p>Also provides some of the following plugins:</p>
+
+<ul>
+<li>NERDCommenter: allows you to wrangle your code comments, regardless of
+filetype</li>
+<li>NERDTree: shows a very nice file explorer tree inside vim</li>
+<li>SuperTab: autocompletation based on the context</li>
+<li>Syntastic: a syntax checking plugin</li>
+<li>Fugitive: git support</li>
+<li>etc, etc, etc</li>
+</ul>
+
+
+<p>I advice you to check the web page project for a more complete
+description of the capabilities of Janus.</p>
+
+<h4>Installation</h4>
+
+<p>As easy as 1,2,3 using the automatic installer, which backs up any vim
+configuration file that you may already have.
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>curl -Lo- http://bit.ly/janus-bootstrap | bash
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>For more info about customizing Janus, I recommend visiting the project
+web page at <a href="https://github.com/carlhuda/janus">https://github.com/carlhuda/janus</a></p>
+
+<h3>Solarized</h3>
+
+<p>If you are into web development specially if you are a <em>mac fanboy</em>, there
+are many chances that you already know
+<a href="http://ethanschoonover.com/solarized">Solarized</a> a very nice color
+palette with a incredible well picked set of colors. Solarized comes
+basically in two flavors: <strong>The dark style</strong> and the <strong>light style</strong>. <em>Janus</em>
+has a built in support for solarized but it doesn't work as expected
+because the color settings apparently are wrong.
+Here you have the code snippet that you have to put in
+<strong>~/.vimrc.after</strong></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="err">&quot;</span> sets up solarized properly
+</span><span class='line'><span class="nb">let </span>g:solarized_termcolors<span class="o">=</span>256
+</span><span class='line'><span class="nb">set </span><span class="nv">t_Co</span><span class="o">=</span>16
+</span><span class='line'><span class="nb">set </span><span class="nv">background</span><span class="o">=</span>dark
+</span><span class='line'>colorscheme solarized
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Now you should be asking How it looks like?, well if you pay attention to
+the nice colors in the previous code blocks you already saw it.
+<em>Octopress</em> my blogging platform use it by default for the code blocks.
+Now for make it more clear here you have a longer block with an example piece of code
+(using solarized as color scheme), this code is taken from one of my
+projects (A text simplifier platform):
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Example Java code  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;*</span>
+</span><span class='line'> <span class="o">*</span> <span class="n">This</span> <span class="n">transform</span> <span class="n">one</span> <span class="n">sentence</span> <span class="n">per</span> <span class="n">line</span> <span class="n">into</span> <span class="n">something</span> <span class="n">that</span> <span class="n">the</span> <span class="n">parser</span> <span class="n">can</span>
+</span><span class='line'> <span class="o">*</span> <span class="n">process</span>
+</span><span class='line'> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'> <span class="kd">private</span> <span class="kt">void</span> <span class="nf">executeParsingProcess</span><span class="o">()</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="n">PipelineHelper</span><span class="o">.</span><span class="na">getResourcePath</span><span class="o">(</span><span class="s">&quot;/ext-resources/input&quot;</span><span class="o">);&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;Mate-tools input: &quot;</span> <span class="o">+</span> <span class="n">path</span><span class="o">);&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="n">File</span> <span class="n">folder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">path</span><span class="o">);&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="k">if</span> <span class="o">(!</span><span class="n">folder</span><span class="o">.</span><span class="na">isDirectory</span><span class="o">())</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span> <span class="k">return</span><span class="o">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="o">}&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="k">for</span> <span class="o">(</span><span class="n">File</span> <span class="n">file</span> <span class="o">:</span> <span class="n">folder</span><span class="o">.</span><span class="na">listFiles</span><span class="o">())</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span> <span class="n">String</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'> <span class="k">if</span> <span class="o">(</span><span class="n">filename</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">&quot;.tok&quot;</span><span class="o">)</span> <span class="o">||</span> <span class="n">filename</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">&quot;.lem&quot;</span><span class="o">)</span> <span class="o">||</span>
+</span><span class='line'>     <span class="n">filename</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">&quot;.tag&quot;</span><span class="o">)</span> <span class="o">||</span> <span class="n">filename</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">&quot;.mtag&quot;</span><span class="o">))</span>
+</span><span class='line'>   <span class="k">continue</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'> <span class="n">tokenizeRawFile</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</span><span class='line'> <span class="n">lemmatize</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</span><span class='line'> <span class="n">taggify</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</span><span class='line'> <span class="n">mtaggify</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</span><span class='line'> <span class="n">dependencyParse</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Well this is all for today.</p>
+
+<p>Have fun kids.</p>
+]]></content>
+  </entry>
+  
+</feed>

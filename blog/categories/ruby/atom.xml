@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ruby | davfigue's programming stuff]]></title>
+  <link href="http://davfigue.github.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://davfigue.github.com/"/>
+  <updated>2013-01-26T00:55:55+01:00</updated>
+  <id>http://davfigue.github.com/</id>
+  <author>
+    <name><![CDATA[davfigue]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Falling into Octopress/Jekyll: the new way of blogging]]></title>
+    <link href="http://davfigue.github.com/blog/2012/05/11/falling-into-octopress-slash-jekyll-the-new-way-of-blogging/"/>
+    <updated>2012-05-11T02:19:00+02:00</updated>
+    <id>http://davfigue.github.com/blog/2012/05/11/falling-into-octopress-slash-jekyll-the-new-way-of-blogging</id>
+    <content type="html"><![CDATA[<p>Well, after listening to a friend about all the bell and whistles
+related to blogging with <a href="http://octopress.org">Octopress</a> I decided to
+test it by myself. The
+philosophy is simple but powerful. Octopress is based on
+<a href="http://jekyllrb.com/">Jekyll</a>, as said in the project's page <em>"a
+simple, blog
+aware site generator"</em>, the main idea is to create your web site
+locally using a whole pipeline of tools like Textile, Markdown and
+others that are integrated into it (I'm not specially an expert about
+it) and spit out a complete
+static set of files that you can serve very easily with whatever
+webserver at your hands. Apart from minimizing the whole processing
+bunch needed to serve dynamic web sites (CMS, MVC frameworks, caching
+...) it is also very productive. The only thing that you need to write
+your stuff is a text editor (like Vim xD) and let the magic
+happen. Of course if you have a well configured text editor, you'll have
+a nice set of tools for editing your posts in whatever <strong>text-to-html</strong>
+conversion tool. Without noticing, now I have the subject for the next
+post, <em>How to configure <strong>Vim</strong> for efective editing and programming in
+the
+modern times!</em>.</p>
+
+<p>Well that's all for today folks!</p>
+]]></content>
+  </entry>
+  
+</feed>
